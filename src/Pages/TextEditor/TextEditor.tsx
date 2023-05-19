@@ -1,4 +1,3 @@
-// @ts-noCheck
 import React, { ReactElement, useState } from 'react';
 import ReactQuill from 'react-quill';
 
