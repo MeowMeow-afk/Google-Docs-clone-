@@ -22,6 +22,8 @@
     "paths": {
       "@Components": ["./Components"], // for index.ts file
       "@Components/*": ["./Components/*"], // for files/folders other than index.ts
+      "@Pages": ["./Pages"],
+      "@Pages/*": ["./Pages/*"],
       "@Styles": ["./Styles"],
       "@Styles/*": ["./Styles/*"]
     },
