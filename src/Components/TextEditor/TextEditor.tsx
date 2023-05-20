@@ -6,6 +6,7 @@ const TextEditor = (): ReactElement => {
 
   const modules = {
     toolbar: [
+      [{ font: [] }],
       [{ header: [7, 1, 2, 3, 4, 5, false] }],
       ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block'],
       [
@@ -16,7 +17,6 @@ const TextEditor = (): ReactElement => {
       ],
       ['link', 'image'],
       [{ color: [] }, { background: [] }],
-      [{ font: [] }],
       [{ align: [] }],
     ],
   };
@@ -38,12 +38,14 @@ const TextEditor = (): ReactElement => {
     'code-block',
   ];
   return (
-    <ReactQuill
-      value={value}
-      onChange={setValue}
-      modules={modules}
-      formats={formats}
-    />
+    <div className="container">
+      <ReactQuill
+        value={value}
+        onChange={setValue}
+        modules={modules}
+        formats={formats}
+      />
+    </div>
   );
 };
 

@@ -39,5 +39,6 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
+    'react/self-closing-comp': 'off',
   },
 };

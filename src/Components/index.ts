@@ -1,1 +1,2 @@
-// export { default as AdderCom } from "./AdderCom/AdderCom";
+export { default as TextEditor } from './TextEditor/TextEditor';
+export { default as NavOptions } from './NavOptions/NavOptions';

@@ -24,6 +24,8 @@
       "@Components/*": ["./Components/*"], // for files/folders other than index.ts
       "@Pages": ["./Pages"],
       "@Pages/*": ["./Pages/*"],
+      "@Assets": ["./Assets"],
+      "@Assets/*": ["./Assets/*"],
       "@Styles": ["./Styles"],
       "@Styles/*": ["./Styles/*"]
     },
