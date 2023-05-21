@@ -2,6 +2,9 @@
 import { NavOptions, TextEditor } from '@Components';
 import React, { ReactElement, useState } from 'react';
 import googleIcon from '@Assets/googleDocs.svg';
+import commentsIcon from '@Assets/comments.svg';
+import lockIcon from '@Assets/lock.svg';
+import avatarIcon from '@Assets/avatar.svg';
 
 const EditorPage = (): ReactElement => {
   const [fileName, setFileName] = useState<string>('Untitled document');
@@ -29,9 +32,16 @@ const EditorPage = (): ReactElement => {
           </div>
         </div>
         <div className="header__profile">
-          <div className="commentHistoryIcon"></div>
-          <div className="shareBox"></div>
-          <div className="profileAvatar"></div>
+          <div className="commentHistoryIcon">
+            <img src={commentsIcon} alt="" title="comments history" />
+          </div>
+          <div className="shareBox" title="private to only me">
+            <img src={lockIcon} alt="" />
+            <p>Share</p>
+          </div>
+          <div className="profileAvatar">
+            <img src={avatarIcon} alt="" />
+          </div>
         </div>
       </div>
       <TextEditor />

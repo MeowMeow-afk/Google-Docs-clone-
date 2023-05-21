@@ -1,7 +1,10 @@
 .editor {
   .header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1rem 1rem 1rem 2rem;
+
     .header__options {
       display: flex;
       align-items: center;
@@ -9,6 +12,7 @@
       .docLogo {
         & > img {
           height: 2.3rem;
+          cursor: pointer;
         }
       }
       .nav {
@@ -34,5 +38,51 @@
         }
       }
     }
+    .header__profile {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      & > .commentHistoryIcon {
+        display: grid;
+        place-content: center;
+        cursor: pointer;
+        & > img {
+          height: 2rem;
+        }
+      }
+      & > .shareBox {
+        display: flex;
+        align-items: center;
+        background-color: #c2e7ff;
+        border-radius: 100px;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        height: 40px;
+        line-height: 20px;
+        padding: 9px 24px;
+        white-space: nowrap;
+        background: #c2e7ff;
+        & > img {
+          height: 1.2rem;
+          margin-top: -0.2rem;
+        }
+        & > p {
+          color: #001d35;
+        }
+      }
+      & > .profileAvatar {
+        & > img {
+          height: 3rem;
+        }
+      }
+    }
+  }
+}
+
+@media print {
+  .editor > .header {
+    display: none;
   }
 }
