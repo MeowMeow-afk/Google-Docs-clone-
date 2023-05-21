@@ -16,7 +16,7 @@ const prodConfig = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    publicPath: '/',
+    publicPath: 'http://localhost:8080',
     clean: true,
     compareBeforeEmit: true,
     path: path.resolve(__dirname, '../../dist'),
@@ -58,43 +58,43 @@ const prodConfig = {
     ],
 
     // case 2 : split all the code from node_modules
-    // splitChunks: {
-    //   minSize: 0,
-    //   cacheGroups: {
-    //     chunks: "all",
-    //     vendor: {
-    //       test: /[\\/]node_modules[\\/]/,
-    //       name: "vendor",
-    //     },
-    //   },
-    // },
+    splitChunks: {
+      minSize: 0,
+      cacheGroups: {
+        chunks: 'all',
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+        },
+      },
+    },
 
     /**
      * case 2 : split everuthing in our vendor that is redux, react, react-dom etc
      *          that is split every npm package
      */
-    splitChunks: {
-      chunks: 'all', // async for modulefedaration else all
-      maxInitialRequests: Infinity,
-      minSize: 0,
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name(module) {
-            // get the name. E.g. node_modules/packageName/not/this/part.js
-            // or node_modules/packageName
-            const packageName = module.context.match(
-              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-            )[1];
-            // npm package names are URL-safe, but some servers don't like @ symbols
-            if (packageName.includes('react-dom')) {
-              return 'vendom.react-dom';
-            }
-            return `vendor.${packageName.replace('@', '')}`;
-          },
-        },
-      },
-    },
+    // splitChunks: {
+    //   chunks: 'all', // async for modulefedaration else all
+    //   maxInitialRequests: Infinity,
+    //   minSize: 0,
+    //   cacheGroups: {
+    //     vendor: {
+    //       test: /[\\/]node_modules[\\/]/,
+    //       name(module) {
+    //         // get the name. E.g. node_modules/packageName/not/this/part.js
+    //         // or node_modules/packageName
+    //         const packageName = module.context.match(
+    //           /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+    //         )[1];
+    //         // npm package names are URL-safe, but some servers don't like @ symbols
+    //         if (packageName.includes('react-dom')) {
+    //           return 'vendom.react-dom';
+    //         }
+    //         return `vendor.${packageName.replace('@', '')}`;
+    //       },
+    //     },
+    //   },
+    // },
   },
   plugins: [
     new CleanWebpackPlugin(),
